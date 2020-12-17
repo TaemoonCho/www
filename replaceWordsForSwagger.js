@@ -1,4 +1,4 @@
-window.onload = function () {
+document.addEventListener('load', function () {
     var elementToObserve = document.getElementsByClassName("model-box");
     var observer = new MutationObserver(function (mutationsList, observer) {
     var properties = document.getElementsByClassName("property");
@@ -22,4 +22,4 @@ window.onload = function () {
             });
         }
     }
-}
+});
