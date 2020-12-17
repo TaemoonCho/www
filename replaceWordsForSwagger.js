@@ -1,16 +1,18 @@
-document.addEventListener('load', function () {
+console.log("Jake Taemoon Jo");
+var rootSwaggerDiv = document.getElementById("swagger-ui");
+var rootObserver = new MutationObserver(function (mutationsList, observer) {
     var elementToObserve = document.getElementsByClassName("model-box");
     var observer = new MutationObserver(function (mutationsList, observer) {
-    var properties = document.getElementsByClassName("property");
-    var arr = [].slice.call(properties);
-    properties = arr.filter((property) => property.className == "property");
-    properties.forEach((property) => {
-        property.innerText = property.innerText
-            .replace("OrderedMap ", "")
-            .replace(
-                /, "\$\$ref"\: "#\/components\/examples\/([A-Za-z].*)\"/g,
-                "",
-            );
+        var properties = document.getElementsByClassName("property");
+        var arr = [].slice.call(properties);
+        properties = arr.filter((property) => property.className == "property");
+        properties.forEach((property) => {
+            property.innerText = property.innerText
+                .replace("OrderedMap ", "")
+                .replace(
+                    /, "\$\$ref"\: "#\/components\/examples\/([A-Za-z].*)\"/g,
+                    "",
+                );
         });
     });
     for (let i = 0; i < elementToObserve.length; i++) {
@@ -22,4 +24,9 @@ document.addEventListener('load', function () {
             });
         }
     }
+});
+rootObserver.observe(rootSwaggerDiv, {
+    characterData: true,
+    childList: true,
+    attributes: true,
 });
