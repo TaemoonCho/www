@@ -1,5 +1,6 @@
-var elementToObserve = document.getElementsByClassName("model-box");
-var observer = new MutationObserver(function (mutationsList, observer) {
+window.onload = function () {
+    var elementToObserve = document.getElementsByClassName("model-box");
+    var observer = new MutationObserver(function (mutationsList, observer) {
     var properties = document.getElementsByClassName("property");
     var arr = [].slice.call(properties);
     properties = arr.filter((property) => property.className == "property");
@@ -10,14 +11,15 @@ var observer = new MutationObserver(function (mutationsList, observer) {
                 /, "\$\$ref"\: "#\/components\/examples\/([A-Za-z].*)\"/g,
                 "",
             );
-    });
-});
-for (let i = 0; i < elementToObserve.length; i++) {
-    if (elementToObserve[i].tagName == "SPAN") {
-        observer.observe(elementToObserve[i], {
-            characterData: true,
-            childList: true,
-            attributes: true,
         });
+    });
+    for (let i = 0; i < elementToObserve.length; i++) {
+        if (elementToObserve[i].tagName == "SPAN") {
+            observer.observe(elementToObserve[i], {
+                characterData: true,
+                childList: true,
+                attributes: true,
+            });
+        }
     }
 }
