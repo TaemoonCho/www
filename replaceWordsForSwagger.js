@@ -1,4 +1,6 @@
-setTimeout(function() {
+var isExcuted = false;
+setInterval(function() {
+    if (!isExcuted) {
     var rootSwaggerDiv = document.getElementById("swagger-ui");
     var rootObserver = new MutationObserver(function (mutationsList, observer) {
         console.log("Jake Taemoon Jo");
@@ -27,10 +29,12 @@ setTimeout(function() {
                 });
             }
         }
+        isExcuted = true;
     });
     rootObserver.observe(rootSwaggerDiv, {
         characterData: true,
         childList: true,
         attributes: true,
     });
-}, 3000);
+}
+}, 2000);
