@@ -34,4 +34,4 @@
         childList: true,
         attributes: true,
     });
-};
+});
