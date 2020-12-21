@@ -1,4 +1,4 @@
-window.onload = function() {
+  window.addEventListener('onload', function() {
     var rootSwaggerDiv = document.getElementById("swagger-ui");
     var rootObserver = new MutationObserver(function (mutationsList, observer) {
         console.log("Jake Taemoon Jo");
