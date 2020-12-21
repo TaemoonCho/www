@@ -1,4 +1,4 @@
-  window.addEventListener('onload', function() {
+  window.addEventListener('DOMContentLoaded', function() {
     var rootSwaggerDiv = document.getElementById("swagger-ui");
     var rootObserver = new MutationObserver(function (mutationsList, observer) {
         console.log("Jake Taemoon Jo");
@@ -34,4 +34,4 @@
         childList: true,
         attributes: true,
     });
-});
+}, false);
